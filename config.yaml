@@ -1,0 +1,5 @@
+log_dir: logs
+report_dir: reports
+report_template: templates/report.html
+report_size: 1000
+error_threshold: 0.2

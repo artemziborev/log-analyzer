@@ -1,0 +1,53 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Poetry
+.poetry/
+dist/
+build/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Pytest
+.cache/
+.pytest_cache/
+
+# MyPy
+.mypy_cache/
+
+# VSCode / IDEs
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+
+# Logs & Reports
+logs/
+*.log
+*.gz
+reports/
+
+# HTML Templates (if generated)
+*.html
+
+# Coverage
+htmlcov/
+.coverage
+coverage.xml
+*.cover
+*.py,cover
+
+# Docker
+*.pid
+*.env
+.env.*
