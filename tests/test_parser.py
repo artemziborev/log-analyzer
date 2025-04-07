@@ -2,14 +2,15 @@ from pathlib import Path
 
 import pytest
 
-from app.domain.models import LogFileInfo
-from app.services.parser import LogParser
+from src.app.domain.models import LogFileInfo
+from src.app.services.parser import LogParser
 
 TEST_LOG = """
-127.0.0.1 - - [01/Apr/2025:00:00:01 +0000] "GET /home HTTP/1.1" 200 1234 "-" "curl" "-" 0.123
-127.0.0.1 - - [01/Apr/2025:00:00:02 +0000] "POST /form HTTP/1.1" 200 4321 "-" "curl" "-" 0.456
-bad log line
-"""
+1.2.3.4 - - [01/Jul/2017:00:00:00 +0300] "GET /index HTTP/1.1" 200 100 "-" "curl/7.58.0" "-" 0.100
+1.2.3.5 - - [01/Jul/2017:00:00:01 +0300] "GET /api HTTP/1.1" 200 100 "-" "curl/7.58.0" "-" 0.200
+1.2.3.6 - - [01/Jul/2017:00:00:02 +0300] "GET /index HTTP/1.1" 200 100 "-" "curl/7.58.0" "-" 0.300
+""".strip()
+
 
 
 def test_log_parser(tmp_path: Path) -> None:
@@ -22,9 +23,9 @@ def test_log_parser(tmp_path: Path) -> None:
 
     parser = LogParser()
     parsed = list(parser.parse(file_info))
-    assert len(parsed) == 2
-    assert parsed[0].url == "/home"
-    assert parsed[0].request_time == 0.123
+    assert len(parsed) == 3
+    assert parsed[0].url == "/index"
+    assert parsed[0].request_time == 0.1
 
 
 def test_parser_error_threshold(tmp_path: Path) -> None:

@@ -1,5 +1,5 @@
-from app.domain.models import LogLine
-from app.services.analyzer import Analyzer
+from src.app.domain.models import LogLine
+from src.app.services.analyzer import Analyzer
 
 
 def test_analyzer_basic() -> None:
@@ -15,4 +15,4 @@ def test_analyzer_basic() -> None:
     assert result_by_url["/a"]["count"] == 2
     assert result_by_url["/a"]["time_sum"] == 3.0
     assert result_by_url["/a"]["time_avg"] == 1.5
-    assert result_by_url["/a"]["time_med"] == 2.0
+    assert result_by_url["/a"]["time_med"] == 1.5
