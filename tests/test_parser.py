@@ -12,7 +12,6 @@ TEST_LOG = """
 """.strip()
 
 
-
 def test_log_parser(tmp_path: Path) -> None:
     log_path = tmp_path / "access.log"
     log_path.write_text(TEST_LOG.strip())
