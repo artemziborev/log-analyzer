@@ -3,8 +3,7 @@ from statistics import median
 from typing import Iterable
 
 from src.app.domain.interfaces import IAnalyzer
-from src.app.domain.models import LogLine
-from src.app.domain.models import UrlStat
+from src.app.domain.models import LogLine, UrlStat
 
 
 class Analyzer(IAnalyzer):
