@@ -42,7 +42,7 @@ jobs:
       run: poetry run flake8 .
 
     - name: 🚓 Run ruff
-      run: poetry run ruff .
+      run: poetry run ruff check .
 
     - name: 🧠 Run mypy
       run: poetry run mypy src/app tests
