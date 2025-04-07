@@ -1,4 +1,5 @@
 from datetime import datetime
+from typing import TypedDict
 
 from pydantic import BaseModel
 
@@ -12,9 +13,6 @@ class LogFileInfo(BaseModel):
     path: str
     ext: str  # ".gz" или ".log"
     date: datetime
-
-
-from typing import TypedDict
 
 
 class UrlStat(TypedDict):
