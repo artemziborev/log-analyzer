@@ -14,7 +14,9 @@ class LogFileInfo(BaseModel):
     ext: str  # ".gz" или ".log"
     date: datetime
 
+
 from typing import TypedDict
+
 
 class UrlStat(TypedDict):
     url: str
