@@ -1,5 +1,7 @@
-import pytest
 from pathlib import Path
+
+import pytest
+
 from src.app.domain.models import LogFileInfo
 from src.app.services.parser import LogParser
 
@@ -10,14 +12,12 @@ bad log line
 """
 
 
-def test_log_parser(tmp_path: Path):
+def test_log_parser(tmp_path: Path) -> None:
     log_path = tmp_path / "access.log"
     log_path.write_text(TEST_LOG.strip())
 
     file_info = LogFileInfo(
-        path=str(log_path),
-        ext=".log",
-        date=None  # дата в тесте не проверяется
+        path=str(log_path), ext=".log", date=None  # дата в тесте не проверяется
     )
 
     parser = LogParser()
@@ -27,16 +27,12 @@ def test_log_parser(tmp_path: Path):
     assert parsed[0].request_time == 0.123
 
 
-def test_parser_error_threshold(tmp_path: Path):
+def test_parser_error_threshold(tmp_path: Path) -> None:
     bad_log = "invalid\n" * 10
     log_path = tmp_path / "bad.log"
     log_path.write_text(bad_log)
 
-    file_info = LogFileInfo(
-        path=str(log_path),
-        ext=".log",
-        date=None
-    )
+    file_info = LogFileInfo(path=str(log_path), ext=".log", date=None)
 
     parser = LogParser()
     with pytest.raises(ValueError):

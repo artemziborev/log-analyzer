@@ -1,6 +1,8 @@
 import json
 from string import Template
+
 from src.app.domain.interfaces import IReporter
+
 
 class HtmlReporter(IReporter):
     def __init__(self, template_path: str):

@@ -1,10 +1,11 @@
-import tempfile
 import json
 import os
+import tempfile
+
 from src.app.presentation.reporter import HtmlReporter
 
 
-def test_reporter_creates_file():
+def test_reporter_creates_file() -> None:
     tpl = "<html><body>$table_json</body></html>"
     with tempfile.TemporaryDirectory() as tmpdir:
         template_path = os.path.join(tmpdir, "template.html")

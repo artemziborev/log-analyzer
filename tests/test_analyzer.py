@@ -1,8 +1,8 @@
-from src.app.services.analyzer import Analyzer
 from src.app.domain.models import LogLine
+from src.app.services.analyzer import Analyzer
 
 
-def test_analyzer_basic():
+def test_analyzer_basic() -> None:
     analyzer = Analyzer()
     entries = [
         LogLine(url="/a", request_time=1.0),

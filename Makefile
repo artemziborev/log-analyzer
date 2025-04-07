@@ -1,21 +1,26 @@
-.PHONY: lint test run coverage changelog
+.PHONY: format lint test ckech changelog
 
+# Автоформатирование кода
+format:
+	poetry run black .
+	poetry run isort .
+
+# Проверка кода без изменений
 lint:
-	black .
-	isort .
-	flake8 .
-	mypy .
+	poetry run black --check .
+	poetry run isort --check-only .
+	poetry run flake8 .
+	poetry run ruff .
+	poetry run mypy src/app tests
 
+# Запуск тестов с покрытием
 test:
-	pytest --tb=short -q
-
-run:
-	python main.py --config config.yaml
-
-coverage:
 	poetry run coverage run -m pytest
 	poetry run coverage report
-	poetry run coverage html
+
+# Быстрая проверка (линтинг + тесты)
+check: lint test
+
 
 changelog:
 	poetry run cz changelog

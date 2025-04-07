@@ -1,5 +1,7 @@
 import os
+
 import yaml
+
 
 def load_config(default: dict, path: str | None = None) -> dict:
     if not path:

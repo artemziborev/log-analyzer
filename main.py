@@ -1,12 +1,12 @@
-import os
 import argparse
+import os
 from datetime import datetime
 
+from src.app.domain.models import LogFileInfo
+from src.app.presentation.reporter import HtmlReporter
+from src.app.services.analyzer import Analyzer
 from src.app.services.config_loader import load_config
 from src.app.services.parser import LogParser
-from src.app.services.analyzer import Analyzer
-from src.app.presentation.reporter import HtmlReporter
-from src.app.domain.models import LogFileInfo
 
 
 def find_latest_log(log_dir: str) -> LogFileInfo | None:

@@ -1,8 +1,10 @@
-import re
 import gzip
+import re
 from typing import Iterable
+
 from src.app.domain.interfaces import ILogParser
 from src.app.domain.models import LogFileInfo, LogLine
+
 
 class LogParser(ILogParser):
     LOG_PATTERN = re.compile(
@@ -24,7 +26,7 @@ class LogParser(ILogParser):
                 try:
                     yield LogLine(
                         url=match.group("url"),
-                        request_time=float(match.group("request_time"))
+                        request_time=float(match.group("request_time")),
                     )
                 except Exception:
                     errors += 1

@@ -1,10 +1,12 @@
-import tempfile
 import os
+import tempfile
+
 import pytest
+
 from src.app.services.config_loader import load_config
 
 
-def test_load_config_merge():
+def test_load_config_merge() -> None:
     default = {"a": 1, "b": 2}
     yaml_text = "b: 99\nc: 3"
     with tempfile.NamedTemporaryFile("w", delete=False) as f:
@@ -20,6 +22,6 @@ def test_load_config_merge():
         os.remove(path)
 
 
-def test_config_file_not_found():
+def test_config_file_not_found() -> None:
     with pytest.raises(FileNotFoundError):
         load_config({}, "nonexistent.yaml")
