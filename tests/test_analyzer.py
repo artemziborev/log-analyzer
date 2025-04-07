@@ -1,5 +1,5 @@
-from src.app.domain.models import LogLine
-from src.app.services.analyzer import Analyzer
+from app.domain.models import LogLine
+from app.services.analyzer import Analyzer
 
 
 def test_analyzer_basic() -> None:

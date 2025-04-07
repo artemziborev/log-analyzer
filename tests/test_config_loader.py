@@ -3,7 +3,7 @@ import tempfile
 
 import pytest
 
-from src.app.services.config_loader import load_config
+from app.services.config_loader import load_config
 
 
 def test_load_config_merge() -> None:

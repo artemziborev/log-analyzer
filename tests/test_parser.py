@@ -2,8 +2,8 @@ from pathlib import Path
 
 import pytest
 
-from src.app.domain.models import LogFileInfo
-from src.app.services.parser import LogParser
+from app.domain.models import LogFileInfo
+from app.services.parser import LogParser
 
 TEST_LOG = """
 127.0.0.1 - - [01/Apr/2025:00:00:01 +0000] "GET /home HTTP/1.1" 200 1234 "-" "curl" "-" 0.123

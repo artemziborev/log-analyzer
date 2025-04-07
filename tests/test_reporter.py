@@ -2,7 +2,7 @@ import json
 import os
 import tempfile
 
-from src.app.presentation.reporter import HtmlReporter
+from app.presentation.reporter import HtmlReporter
 
 
 def test_reporter_creates_file() -> None:
